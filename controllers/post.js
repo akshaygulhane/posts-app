@@ -41,10 +41,8 @@ exports.getPosts = function (req, res) {
 exports.updateUpvotes = function (req, res) {
     const id = req.body.id;
 
-    Post.find({
-        id
-    }, function (err, docs) {
-        if (!err) {
+    Post.findOneAndUpdate({ id }, { $inc: {upvotes : 1} } ,  function (err, docs) {
+        if (err) {
             return next(err);
         }
 

@@ -10,6 +10,6 @@ router.put('/', postController.createPost);
 
 router.get('/', postController.getPosts);
 
-router.post('/', postController.updateUpvotes);
+router.post('/upvote', postController.updateUpvotes);
 
 module.exports = router;
