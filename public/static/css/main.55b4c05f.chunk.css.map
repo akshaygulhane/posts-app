@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,SACI,UACJ,CAEA,cACI,cACJ","file":"main.55b4c05f.chunk.css","sourcesContent":["#txtPost {\r\n    width: 50vw;\r\n}\r\n\r\n#upvote:hover {\r\n    cursor: pointer\r\n}"]}
