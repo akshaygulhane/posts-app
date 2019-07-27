@@ -9,7 +9,7 @@ class Post extends React.Component {
     }
 
     handleUpvote = () => {
-        axios.post('http://localhost:3001/post/upvote', { id: this.state.id })
+        axios.post('/post/upvote', { id: this.state.id })
         .then(response => {
             console.log(response);
             const upvotes = this.state.upvotes + 1;

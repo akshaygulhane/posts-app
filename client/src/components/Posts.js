@@ -15,7 +15,7 @@ class Posts extends React.Component {
     addPost = (event) => {
         event.preventDefault();
         
-        axios.put('http://localhost:3001/post', { "text": event.target.txtPost.value })
+        axios.put('/post', { "text": event.target.txtPost.value })
             .then(response => {
                 console.log();
                 this.setState({ posts: [...this.state.posts, response.data.posts ]})
@@ -27,9 +27,9 @@ class Posts extends React.Component {
     }
 
     componentWillMount() {
-        axios.get('http://localhost:3001/post')
+        axios.get('/post')
             .then(response => {
-                console.log(response);
+                // console.log(response);
                 this.setState({
                     posts: response.data.data
                 })
