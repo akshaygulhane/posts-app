@@ -8,5 +8,5 @@
 4) MongoDB
 5) Mongoose
 
-Assumptions:
+### Assumptions:
 1) A user can upvote any number of times.
