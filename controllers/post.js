@@ -15,12 +15,13 @@ exports.createPost = function (req, res) {
         }
     );
 
-    post.save(function (err) {
+    post.save(function (err, docs) {
         if (err) {
             return next(err);
         }
         return res.status(200).send({
-            message: "Success"
+            message: "Success",
+            posts: docs
         })
     })
 };
@@ -47,7 +48,8 @@ exports.updateUpvotes = function (req, res) {
         }
 
         return res.status(200).send({
-            message: "Success"
+            message: "Success",
+            data: docs
         })
     })
 }
