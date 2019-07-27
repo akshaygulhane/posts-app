@@ -13,7 +13,7 @@ app.use(express.static('public'))
 
 // Set up mongoose connection
 
-const mongoDB = process.env.MONGODB_URI;
+const mongoDB = process.env.MONGODB_URI || "mongodb://dev:dev123@ds243344.mlab.com:43344/posts-app";
 
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
