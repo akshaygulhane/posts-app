@@ -37,7 +37,7 @@ class Posts extends React.Component {
                 <div className="">
                 <form className="row form-inline justify-content-center" onSubmit={this.handleSubmit}>
                     <div className="form-group mx-sm-3 mb-2">
-                        <input className="form-control" type="text" id="txtPost" placeholder="Write a post here.." ></input>
+                        <input className="form-control" type="text" id="txtPost" placeholder="Write a post here.." required></input>
                     </div>
                     <button type="submit" className="btn btn-secondary mb-2">Add Post</button>
                 </form>

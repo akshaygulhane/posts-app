@@ -15,7 +15,7 @@ class Post extends React.Component {
    
     render() {
         return (       
-            <div className="col-md-6 alert alert-dark">
+            <div className="col-md-7 alert alert-dark">
                 <strong>{this.state.text}title</strong><br />
                 <small>Created on: {moment.unix(this.state.createdAt).format('dddd, MMMM Do, YYYY h:mm A')}</small> <br />
                 <div className="form-group float-right">
