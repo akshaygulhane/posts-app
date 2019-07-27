@@ -1,0 +1,7 @@
+#txtPost {
+    width: 50vw;
+}
+
+#upvote:hover {
+    cursor: pointer
+}

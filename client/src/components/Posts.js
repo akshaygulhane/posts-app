@@ -12,30 +12,39 @@ class Posts extends React.Component {
         }
     }
 
-    handleSubmit = (event) => {
+    addPost = (event) => {
         event.preventDefault();
-        console.log(event.target.txtPost.value);
-        const post = {
-            "text": event.target.txtPost.value,
-        }
-        this.setState({ posts: [...this.state.posts, post ]})
+        
+        axios.put('http://localhost:3001/post', { "text": event.target.txtPost.value })
+            .then(response => {
+                console.log();
+                this.setState({ posts: [...this.state.posts, response.data.posts ]})
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        
     }
 
     componentWillMount() {
-        axios.get('http://localhost:3001/post').then(response => {
-            console.log(response);
-            this.setState({
-                posts: response.data.data
+        axios.get('http://localhost:3001/post')
+            .then(response => {
+                console.log(response);
+                this.setState({
+                    posts: response.data.data
+                })
             })
-        })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
 
     render() {
         return (
             <>
-                <div className="">
-                <form className="row form-inline justify-content-center" onSubmit={this.handleSubmit}>
+                <form className="row form-inline justify-content-center" onSubmit={this.addPost}>
+                    
                     <div className="form-group mx-sm-3 mb-2">
                         <input className="form-control" type="text" id="txtPost" placeholder="Write a post here.." required></input>
                     </div>
@@ -48,8 +57,6 @@ class Posts extends React.Component {
                     })
                 }
                 </div>
-                
-            </div>
             </>
         )
     }

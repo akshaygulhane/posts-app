@@ -8,19 +8,24 @@ class Post extends React.Component {
         this.state = props.postData
     }
 
-    handleUpvote(event) {
-        axios.post('')
-        .then()
+    handleUpvote = () => {
+        axios.post('http://localhost:3001/post/upvote', { id: this.state.id })
+        .then(response => {
+            console.log(response);
+            const upvotes = this.state.upvotes + 1;
+            this.setState({
+                upvotes: upvotes
+            })
+        })
     }
    
     render() {
         return (       
             <div className="col-md-7 alert alert-dark">
-                <strong>{this.state.text}title</strong><br />
-                <small>Created on: {moment.unix(this.state.createdAt).format('dddd, MMMM Do, YYYY h:mm A')}</small> <br />
+                <strong>{this.state.text}</strong><br />
+                <small><strong>Created on:</strong> {moment.unix(this.state.createdAt).format('dddd, MMMM Do, YYYY h:mm A')}</small> <br />
                 <div className="form-group float-right">
-                    <button type="button" className="btn btn-outline-info btn-sm p-6">Upvote</button> 
-                    <span className="badge badge-pill badge-info">{this.state.upvotes}</span>
+                    <h4 onClick={this.handleUpvote} id="upvote">&#x1F44D; <span className="badge badge-pill badge-info">{this.state.upvotes}</span></h4>
                 </div>
             </div>
         )
