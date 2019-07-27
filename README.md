@@ -9,4 +9,4 @@
 5) Mongoose
 
 Assumptions:
-None.
+1) A user can upvote any number of times.
